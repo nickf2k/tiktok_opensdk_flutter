@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
+import 'package:tiktok_open_sdk/share_tiktok_param.dart';
 import 'package:tiktok_open_sdk/tiktok_open_sdk.dart';
 
 void main() {
@@ -31,8 +32,13 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await _tiktokOpenSdkPlugin.getPlatformVersion() ?? 'Unknown platform version';
+      platformVersion = await _tiktokOpenSdkPlugin.getPlatformVersion() ??
+          'Unknown platform version';
+      _tiktokOpenSdkPlugin.shareToTikTok(ShareTiktokParam(
+          mediaPaths: ["path 1", "path 2"],
+          mediaType: "VIDEO",
+          clientKey: "client key",
+          shareFormat: "DEFAULT"));
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -55,7 +61,22 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            children: [
+              Text('Running on: $_platformVersion\n'),
+              ElevatedButton(
+                  onPressed: () {
+                    _tiktokOpenSdkPlugin.shareToTikTok(ShareTiktokParam(
+                        mediaPaths: ["path 1", "path 2"],
+                        mediaType: "VIDEO",
+                        clientKey: "client key",
+                        shareFormat: "DEFAULT"));
+                  },
+                  child: Text(
+                    'Share to Tiktok',
+                  ))
+            ],
+          ),
         ),
       ),
     );

@@ -18,6 +18,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://artifact.bytedance.com/repository/AwemeOpenSDK" }
     }
 }
 
@@ -52,6 +53,10 @@ android {
     dependencies {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
         testImplementation 'org.mockito:mockito-core:5.0.0'
+
+        implementation 'com.tiktok.open.sdk:tiktok-open-sdk-core:latest.release'
+        implementation 'com.tiktok.open.sdk:tiktok-open-sdk-auth:latest.release'   // to use authorization api
+        implementation 'com.tiktok.open.sdk:tiktok-open-sdk-share:latest.release'    // to use share api
     }
 
     testOptions {

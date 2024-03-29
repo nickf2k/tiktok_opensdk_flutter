@@ -21,6 +21,10 @@ def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
+repositories {
+    maven { url "https://artifact.bytedance.com/repository/AwemeOpenSDK" }
+}
+
 
 android {
     namespace "com.nickf2k.tiktok_open_sdk_example"
@@ -45,7 +49,7 @@ android {
         applicationId "com.nickf2k.tiktok_open_sdk_example"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -64,4 +68,8 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation 'com.tiktok.open.sdk:tiktok-open-sdk-core:latest.release'
+    implementation 'com.tiktok.open.sdk:tiktok-open-sdk-auth:latest.release'   // to use authorization api
+    implementation 'com.tiktok.open.sdk:tiktok-open-sdk-share:latest.release'    // to use share api
+}

@@ -7,7 +7,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockTiktokOpenSdkPlatform
     with MockPlatformInterfaceMixin
     implements TiktokOpenSdkPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 }
@@ -25,5 +24,12 @@ void main() {
     TiktokOpenSdkPlatform.instance = fakePlatform;
 
     expect(await tiktokOpenSdkPlugin.getPlatformVersion(), '42');
+  });
+  test('shareToTikTok', () async {
+    TiktokOpenSdk tiktokOpenSdkPlugin = TiktokOpenSdk();
+    MockTiktokOpenSdkPlatform fakePlatform = MockTiktokOpenSdkPlatform();
+    TiktokOpenSdkPlatform.instance = fakePlatform;
+
+    // expect(await tiktokOpenSdkPlugin.shareToTikTok('test'), '42');
   });
 }

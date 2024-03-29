@@ -12,6 +12,8 @@ public class TiktokOpenSdkPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "getPlatformVersion":
       result("iOS " + UIDevice.current.systemVersion)
+      case "shareToTiktok":
+      result("SUCCESS")
     default:
       result(FlutterMethodNotImplemented)
     }
