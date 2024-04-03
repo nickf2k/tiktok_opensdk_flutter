@@ -3,9 +3,15 @@ class ShareTiktokParam {
   String? mediaType;
   String? clientKey;
   String? shareFormat;
+  String? shareSuccessMsg;
 
-  ShareTiktokParam(
-      {this.mediaPaths, this.mediaType, this.clientKey, this.shareFormat});
+  ShareTiktokParam({
+    required this.mediaPaths,
+    required this.clientKey,
+    required this.shareFormat,
+    this.mediaType,
+    this.shareSuccessMsg,
+  });
 
   ShareTiktokParam.fromJson(Map<String, dynamic> json) {
     mediaPaths =
@@ -13,6 +19,7 @@ class ShareTiktokParam {
     mediaType = json['mediaType'] as String?;
     clientKey = json['clientKey'] as String?;
     shareFormat = json['shareFormat'] as String?;
+    shareSuccessMsg = json['shareSuccessMsg'] as String?;
   }
 
   Map<String, dynamic> toJson() {
@@ -21,6 +28,7 @@ class ShareTiktokParam {
     data['mediaType'] = mediaType;
     data['clientKey'] = clientKey;
     data['shareFormat'] = shareFormat;
+    data['shareSuccessMsg'] = shareSuccessMsg;
     return data;
   }
 }

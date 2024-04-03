@@ -1,4 +1,3 @@
-
 import 'package:tiktok_open_sdk/share_tiktok_param.dart';
 
 import 'tiktok_open_sdk_platform_interface.dart';
@@ -8,7 +7,11 @@ class TiktokOpenSdk {
     return TiktokOpenSdkPlatform.instance.getPlatformVersion();
   }
 
-  void shareToTikTok(ShareTiktokParam param) {
+  static shareToTikTok(ShareTiktokParam param) {
     TiktokOpenSdkPlatform.instance.shareToTikTok(param);
+  }
+
+  static loginToTiktok(String clientKey) {
+    TiktokOpenSdkPlatform.instance.loginToTiktok(clientKey);
   }
 }

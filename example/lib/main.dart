@@ -34,11 +34,11 @@ class _MyAppState extends State<MyApp> {
     try {
       platformVersion = await _tiktokOpenSdkPlugin.getPlatformVersion() ??
           'Unknown platform version';
-      _tiktokOpenSdkPlugin.shareToTikTok(ShareTiktokParam(
-          mediaPaths: ["path 1", "path 2"],
-          mediaType: "VIDEO",
-          clientKey: "client key",
-          shareFormat: "DEFAULT"));
+      // _tiktokOpenSdkPlugin.shareToTikTok(ShareTiktokParam(
+      //     mediaPaths: ["path 1", "path 2"],
+      //     mediaType: "VIDEO",
+      //     clientKey: "client key",
+      //     shareFormat: "DEFAULT"));
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -65,16 +65,25 @@ class _MyAppState extends State<MyApp> {
             children: [
               Text('Running on: $_platformVersion\n'),
               ElevatedButton(
-                  onPressed: () {
-                    _tiktokOpenSdkPlugin.shareToTikTok(ShareTiktokParam(
-                        mediaPaths: ["path 1", "path 2"],
-                        mediaType: "VIDEO",
-                        clientKey: "client key",
-                        shareFormat: "DEFAULT"));
-                  },
-                  child: Text(
-                    'Share to Tiktok',
-                  ))
+                onPressed: () {
+                  TiktokOpenSdk.loginToTiktok('client key');
+                },
+                child: const Text(
+                  'Login to Tiktok',
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  TiktokOpenSdk.shareToTikTok(ShareTiktokParam(
+                      mediaPaths: ["path 1", "path 2"],
+                      mediaType: "VIDEO",
+                      clientKey: "client key",
+                      shareFormat: "DEFAULT"));
+                },
+                child: const Text(
+                  'Share to Tiktok',
+                ),
+              )
             ],
           ),
         ),

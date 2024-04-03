@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tiktok_open_sdk/share_tiktok_param.dart';
 import 'package:tiktok_open_sdk/tiktok_open_sdk.dart';
 import 'package:tiktok_open_sdk/tiktok_open_sdk_platform_interface.dart';
 import 'package:tiktok_open_sdk/tiktok_open_sdk_method_channel.dart';
@@ -9,6 +10,16 @@ class MockTiktokOpenSdkPlatform
     implements TiktokOpenSdkPlatform {
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  void loginToTiktok(String clientKey) {
+    // TODO: implement loginToTiktok
+  }
+
+  @override
+  void shareToTikTok(ShareTiktokParam param) {
+    // TODO: implement shareToTikTok
+  }
 }
 
 void main() {

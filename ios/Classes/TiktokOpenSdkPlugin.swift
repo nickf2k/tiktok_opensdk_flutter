@@ -1,5 +1,7 @@
 import Flutter
 import UIKit
+import TikTokOpenSDKCore
+
 
 public class TiktokOpenSdkPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -13,6 +15,8 @@ public class TiktokOpenSdkPlugin: NSObject, FlutterPlugin {
     case "getPlatformVersion":
       result("iOS " + UIDevice.current.systemVersion)
       case "shareToTiktok":
+      result("SUCCESS")
+      case "loginToTiktok":
       result("SUCCESS")
     default:
       result(FlutterMethodNotImplemented)

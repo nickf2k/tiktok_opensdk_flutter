@@ -1,4 +1,5 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:tiktok_open_sdk/constants.dart';
 import 'package:tiktok_open_sdk/share_tiktok_param.dart';
 
 import 'tiktok_open_sdk_method_channel.dart';
@@ -29,6 +30,12 @@ abstract class TiktokOpenSdkPlatform extends PlatformInterface {
   }
 
   void shareToTikTok(ShareTiktokParam param) {
-    throw UnimplementedError('shareToTiktok() has not been implemented.');
+    throw UnimplementedError(
+        '$kShareToTiktokMethod() has not been implemented.');
+  }
+
+  void loginToTiktok(String clientKey) {
+    throw UnimplementedError(
+        '$kLoginToTiktokMethod() has not been implemented.');
   }
 }
